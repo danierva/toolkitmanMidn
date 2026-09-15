@@ -10,6 +10,28 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <style>
+        .brand-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.site-logo {
+    width: 60px; /* Ukuran lebar logo */
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .brand-container {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .site-logo {
+        width: 48px; /* Ukuran sedikit lebih kecil di layar HP */
+    }
+}
         :root {
             --primary: #1e3a8a;
             --primary-hover: #1e40af;
@@ -137,16 +159,20 @@
 <body>
 
 <div class="container">
-    <div class="header">
+  <div class="header">
+    <div class="brand-container">
+        <!-- Logo dipanggil di sini -->
+        <img src="logomidn.png" alt="Logo MI Darun Najah" class="site-logo">
         <div class="header-title">
-            <h1>Sistem Laporan Pekerjaan Toolkitman</h1>
-            <p>Rekapitulasi Maintenance & Perbaikan Fasilitas</p>
-        </div>
-        <div>
-            <button id="btnLoginNav" class="btn btn-login" onclick="openLoginModal()">🔑 Login Admin</button>
-            <button id="btnLogoutNav" class="btn btn-logout" onclick="logoutAdmin()">🚪 Logout Admin</button>
+            <h1>MI Darun Najah Kletek</h1>
+            <p>Sistem Laporan Pekerjaan Toolkitman & Maintenance</p>
         </div>
     </div>
+    <div>
+        <button id="btnLoginNav" class="btn btn-login" onclick="openLoginModal()">🔑 Login Admin</button>
+        <button id="btnLogoutNav" class="btn btn-logout" onclick="logoutAdmin()">🚪 Logout Admin</button>
+    </div>
+</div>
 
     <!-- Form Input / Edit Data (Hanya Muncul Saat Admin Login) -->
     <div class="form-container" id="adminFormContainer">
@@ -253,13 +279,14 @@
 <script>
     // 1. ISI DENGAN KONFIGURASI FIREBASE ANDA
     const firebaseConfig = {
-        apiKey: "PASTE_API_KEY_ANDA",
-        authDomain: "PASTE_AUTH_DOMAIN_ANDA",
-        databaseURL: "PASTE_DATABASE_URL_ANDA",
-        projectId: "PASTE_PROJECT_ID_ANDA",
-        storageBucket: "PASTE_STORAGE_BUCKET_ANDA",
-        messagingSenderId: "PASTE_SENDER_ID_ANDA",
-        appId: "PASTE_APP_ID_ANDA"
+        apiKey: "AIzaSyCaYjmLLkz09RzY3oy_3VoeRBSSmg0CCKI",
+        authDomain: "toolkitmanmidn.firebaseapp.com",
+        databaseURL: "https://toolkitmanmidn-default-rtdb.firebaseio.com",
+        projectId: "toolkitmanmidn",
+        storageBucket: "toolkitmanmidn.firebasestorage.app",
+        messagingSenderId: "715978318274",
+        appId: "1:715978318274:web:23642c4cdb4c83d2fa765b"
+        measurementId: "G-PP2D9MLXH4"
     };
 
     firebase.initializeApp(firebaseConfig);
